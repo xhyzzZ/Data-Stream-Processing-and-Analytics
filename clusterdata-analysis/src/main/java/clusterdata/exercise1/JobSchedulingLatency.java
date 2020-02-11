@@ -1,16 +1,21 @@
 package clusterdata.exercise1;
 
+import clusterdata.datatypes.EventType;
 import clusterdata.datatypes.JobEvent;
 import clusterdata.sources.JobEventSource;
 import clusterdata.utils.AppBase;
 import org.apache.flink.api.common.functions.FilterFunction;
+import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.MapFunction;
-import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.util.Collector;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Measure the time between submitting and scheduling each job in the cluster.
@@ -65,20 +70,37 @@ public class JobSchedulingLatency extends AppBase {
             }
         });
 
-        DataStream<Tuple2<Long, Long>> jobIdWithLatency = filteredEvents.map(new MapFunction<JobEvent, Tuple2<Long, Long>>() {
-            @Override
-            public Tuple2<Long, Long> map(JobEvent jobEvent) throws Exception {
-                return new Tuple2<>(jobEvent.jobId, jobEvent.timestamp);
-            }
-        }).keyBy(0).reduce(new ReduceFunction<Tuple2<Long, Long>>() {
-            @Override
-            public Tuple2<Long, Long> reduce(Tuple2<Long, Long> t1, Tuple2<Long, Long> t2) throws Exception {
-                return new Tuple2<>(t1.f0, t2.f1 - t1.f1);
-            }
-        });
+        DataStream<Tuple2<Long, Long>> jobIdWithLatency = filteredEvents
+                .keyBy("jobId")
+                .flatMap(new DurationMapping());
 
         printOrTest(jobIdWithLatency);
         // execute the dataflow
         env.execute("Job Scheduling Latency Application");
+    }
+
+    private static final class DurationMapping implements FlatMapFunction<JobEvent, Tuple2<Long, Long>> {
+        Map<Long, JobEvent> map;
+        public void flatMap(JobEvent jobEvent, Collector<Tuple2<Long, Long>> collector) throws Exception {
+            // no jobid is in the map, means no schedule or submit event
+            if (map == null) {
+                map = new HashMap<>();
+            }
+            // three situations: submit -> submit, submit -> schedule, schedule -> submit
+            if (!map.containsKey(jobEvent.jobId)) {
+                // no event neither schedule or submit
+                map.put(jobEvent.jobId, jobEvent);
+            } else {
+                // exist schedule submit pair
+                // multiple submit, remove old submit, put new submit, keep only one submit in hashmap
+                if (map.get(jobEvent.jobId).eventType.getValue() == 0 && jobEvent.eventType.getValue() == 0) {
+                    map.remove(jobEvent.jobId);
+                    map.put(jobEvent.jobId, jobEvent);
+                }
+                long time = map.get(jobEvent.jobId).timestamp;
+                long time2 = jobEvent.timestamp;
+                collector.collect(new Tuple2<>(jobEvent.jobId, Math.abs(time - time2)));
+            }
+        }
     }
 }

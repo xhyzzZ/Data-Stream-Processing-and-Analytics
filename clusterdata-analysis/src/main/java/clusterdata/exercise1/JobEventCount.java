@@ -57,6 +57,7 @@ public class JobEventCount extends AppBase {
      * and the number 1 as the second field.
      */
     private static final class AppendOneMapper implements MapFunction<JobEvent, Tuple2<Long, Long>> {
+        
         @Override
         public Tuple2<Long, Long> map(JobEvent jobEvent) throws Exception {
             return new Tuple2<>(jobEvent.jobId, 1L);

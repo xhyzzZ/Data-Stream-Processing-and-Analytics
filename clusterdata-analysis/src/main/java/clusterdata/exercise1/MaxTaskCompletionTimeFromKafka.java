@@ -3,8 +3,7 @@ package clusterdata.exercise1;
 import clusterdata.datatypes.TaskEvent;
 import clusterdata.utils.AppBase;
 import clusterdata.utils.TaskEventSchema;
-import org.apache.flink.api.common.functions.MapFunction;
-import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -12,7 +11,10 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrdernessTimestampExtractor;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.util.Collector;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -26,9 +28,9 @@ public class MaxTaskCompletionTimeFromKafka extends AppBase {
     private static final String LOCAL_ZOOKEEPER_HOST = "localhost:2181";
     private static final String LOCAL_KAFKA_BROKER = "localhost:9092";
     private static final String TASKS_GROUP = "taskGroup";
-
+    private static Map<Integer, Long> priToDur;
     public static void main(String[] args) throws Exception {
-
+        priToDur = new HashMap<>();
         // set up streaming execution environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
@@ -68,15 +70,11 @@ public class MaxTaskCompletionTimeFromKafka extends AppBase {
         consumer.assignTimestampsAndWatermarks(new TSExtractor());
         DataStream<TaskEvent> events = env.addSource(taskSourceOrTest(consumer));
 
-        DataStream<Tuple2<Integer, Long>> taskDurations = events.map(new MapFunction<TaskEvent, Tuple2<Integer, Long>>() {
-            @Override
-            public Tuple2<Integer, Long> map(TaskEvent taskEvent) throws Exception {
-                return new Tuple2<>(taskEvent.priority, taskEvent.timestamp);
-            }
-        }).keyBy(0).max(1);
+        DataStream<Tuple2<Integer, Long>> maxDurationsPerPriority = events
+                .keyBy("taskIndex", "priority")
+                .flatMap(new DurationTaskMapping());
 
-//        DataStream<Tuple2<Integer, Long>> maxDurationsPerPriority = taskDurations.
-        printOrTest(taskDurations);
+        printOrTest(maxDurationsPerPriority);
         env.execute();
     }
 
@@ -93,6 +91,37 @@ public class MaxTaskCompletionTimeFromKafka extends AppBase {
         @Override
         public long extractTimestamp(TaskEvent event) {
            return event.timestamp;
+        }
+    }
+
+    private static class DurationTaskMapping implements FlatMapFunction<TaskEvent, Tuple2<Integer, Long>> {
+        Map<Long, TaskEvent> map;
+        @Override
+        public void flatMap(TaskEvent taskEvent, Collector<Tuple2<Integer, Long>> collector) throws Exception {
+            if (map == null) {
+                map = new HashMap<>();
+            }
+            if (!map.containsKey(taskEvent.jobId)) {
+                // no event either schedule or finish
+                map.put(taskEvent.jobId, taskEvent);
+            } else {
+                // exist schedule finish pair
+                long time = map.get(taskEvent.jobId).timestamp, time2 = taskEvent.timestamp;
+                long duration = Math.abs(time - time2);
+                int priority = taskEvent.priority;
+                if (!priToDur.containsKey(priority)) {
+                    priToDur.put(priority, duration);
+                    collector.collect(new Tuple2<>(priority, duration));
+                } else {
+                    long cur = priToDur.get(priority);
+                    if (cur < duration) {
+                        priToDur.put(priority, duration);
+                        collector.collect(new Tuple2<>(priority, duration));
+                    } else {
+                        collector.collect(new Tuple2<>(priority, cur));
+                    }
+                }
+            }
         }
     }
 }

@@ -68,7 +68,6 @@ public class FilterTaskEventsToKafka extends AppBase {
                         FILTERED_TASKS_TOPIC,       // Topic to write to
                         new TaskEventSchema())));   // Serializer (provided as util
         // run the cleansing pipeline
-//        printOrTest(filteredEvents);
         env.execute("Task Events to Kafka");
     }
 
