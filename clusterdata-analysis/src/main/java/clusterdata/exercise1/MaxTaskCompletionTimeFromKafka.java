@@ -3,6 +3,8 @@ package clusterdata.exercise1;
 import clusterdata.datatypes.TaskEvent;
 import clusterdata.utils.AppBase;
 import clusterdata.utils.TaskEventSchema;
+import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -60,11 +62,21 @@ public class MaxTaskCompletionTimeFromKafka extends AppBase {
         // DataStream<Tuple2<Integer, Long>> maxDurationsPerPriority = taskDurations
         // printOrTest(maxDurationsPerPriority);
         FlinkKafkaConsumer011<TaskEvent> consumer = new FlinkKafkaConsumer011<>(
-                        "cleansedRides", new TaskEventSchema(), kafkaProps);
+                FilterTaskEventsToKafka.FILTERED_TASKS_TOPIC,
+                new TaskEventSchema(),
+                kafkaProps);
         consumer.assignTimestampsAndWatermarks(new TSExtractor());
         DataStream<TaskEvent> events = env.addSource(taskSourceOrTest(consumer));
-        DataStream<Tuple2<Integer, Long>> taskDurations = events.
-        DataStream<Tuple2<Integer, Long>> maxDurationsPerPriority = taskDurations.
+
+        DataStream<Tuple2<Integer, Long>> taskDurations = events.map(new MapFunction<TaskEvent, Tuple2<Integer, Long>>() {
+            @Override
+            public Tuple2<Integer, Long> map(TaskEvent taskEvent) throws Exception {
+                return new Tuple2<>(taskEvent.priority, taskEvent.timestamp);
+            }
+        }).keyBy(0).max(1);
+
+//        DataStream<Tuple2<Integer, Long>> maxDurationsPerPriority = taskDurations.
+        printOrTest(taskDurations);
         env.execute();
     }
 

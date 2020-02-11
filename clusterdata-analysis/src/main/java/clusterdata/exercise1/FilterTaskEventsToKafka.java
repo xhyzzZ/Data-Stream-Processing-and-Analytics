@@ -63,13 +63,12 @@ public class FilterTaskEventsToKafka extends AppBase {
             }
         });
 
-        filteredEvents.addSink(new FlinkKafkaProducer011<>(
-                LOCAL_KAFKA_BROKER,      // Kafka broker host:port
-                FILTERED_TASKS_TOPIC,    // Topic to write to
-                new TaskEventSchema())  // Serializer (provided as util)
-        );
-
+        filteredEvents.addSink((SinkFunction<TaskEvent>) sinkOrTest(new FlinkKafkaProducer011<TaskEvent>(
+                        LOCAL_KAFKA_BROKER,          // Kafka broker host:port
+                        FILTERED_TASKS_TOPIC,       // Topic to write to
+                        new TaskEventSchema())));   // Serializer (provided as util
         // run the cleansing pipeline
+//        printOrTest(filteredEvents);
         env.execute("Task Events to Kafka");
     }
 

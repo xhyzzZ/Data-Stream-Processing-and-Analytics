@@ -13,7 +13,7 @@ public class AppBase {
     public static int parallelism = 4;
 
     public final static String pathToJobEventData = "/Users/kobale/Desktop/CS 591 Data Stream/clusterdata-analysis/clusterdata-2011-2/job_events";
-    public final static String pathToTaskEventData = "/scratch/clusterdata-2011-2/task_events/small-task-data";
+    public final static String pathToTaskEventData = "/Users/kobale/Desktop/CS 591 Data Stream/clusterdata-analysis/clusterdata-2011-2/task_events";
 
 
     public static SourceFunction<JobEvent> jobSourceOrTest(SourceFunction<JobEvent> source) {

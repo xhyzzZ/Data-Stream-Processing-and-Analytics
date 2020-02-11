@@ -34,6 +34,10 @@ public class TaskEventSchema implements DeserializationSchema<TaskEvent>, Serial
     @Override
     public TaskEvent deserialize(byte[] message) throws IOException {
         //TODO: implement this method
+        if (objectMapper == null) {
+            objectMapper = new ObjectMapper();
+        }
+
         return objectMapper.readValue(message, TaskEvent.class);
     }
 

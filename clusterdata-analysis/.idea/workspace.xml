@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef70f1b3-f51e-466d-9b07-a7237b734314" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clusterdata/exercise1/FilterTaskEventsToKafka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clusterdata/exercise1/FilterTaskEventsToKafka.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clusterdata/exercise1/JobSchedulingLatency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clusterdata/exercise1/JobSchedulingLatency.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clusterdata/utils/AppBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clusterdata/utils/AppBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clusterdata/utils/TaskEventSchema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clusterdata/utils/TaskEventSchema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/FilterTaskEventsToKafka.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/FilterTaskEventsToKafka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/JobSchedulingLatency$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/JobSchedulingLatency$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/JobSchedulingLatency$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/JobSchedulingLatency$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/JobSchedulingLatency.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/JobSchedulingLatency.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka$TSExtractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka$TSExtractor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clusterdata/utils/AppBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clusterdata/utils/AppBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clusterdata/utils/TaskEventSchema.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clusterdata/utils/TaskEventSchema.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,12 +23,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1XDItFrgGKCxdSV30bT65r5TDkN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -44,7 +66,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.JobSchedulingLatency">
+  <component name="RunManager" selected="Application.MaxTaskCompletionTimeFromKafka">
+    <configuration name="FilterTaskEventsToKafka" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clusterdata.exercise1.FilterTaskEventsToKafka" />
+      <module name="clusterdata-analysis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clusterdata.exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JobEventCount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="clusterdata.exercise1.JobEventCount" />
       <module name="clusterdata-analysis" />
@@ -71,8 +106,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MaxTaskCompletionTimeFromKafka" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clusterdata.exercise1.MaxTaskCompletionTimeFromKafka" />
+      <module name="clusterdata-analysis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clusterdata.exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MaxTaskCompletionTimeFromKafka" />
+        <item itemvalue="Application.FilterTaskEventsToKafka" />
         <item itemvalue="Application.JobSchedulingLatency" />
         <item itemvalue="Application.JobEventCount" />
       </list>
@@ -93,7 +143,11 @@
       <workItem from="1580704045299" duration="988000" />
       <workItem from="1580750684703" duration="6781000" />
       <workItem from="1580848414972" duration="4670000" />
-      <workItem from="1581015599773" duration="14608000" />
+      <workItem from="1581015599773" duration="20620000" />
+      <workItem from="1581102565877" duration="7609000" />
+      <workItem from="1581225789220" duration="15241000" />
+      <workItem from="1581310182733" duration="2652000" />
+      <workItem from="1581355965002" duration="7864000" />
     </task>
     <servers />
   </component>
