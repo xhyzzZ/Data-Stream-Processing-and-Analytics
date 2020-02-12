@@ -46,10 +46,10 @@ public class MaxTaskCompletionTimeFromKafka extends AppBase {
         // always read the Kafka topic from the start
         Properties kafkaProps = new Properties();
 
-        kafkaProps.setProperty("zookeeper.connect", LOCAL_ZOOKEEPER_HOST); // Zookeeper default host:port
-        kafkaProps.setProperty("bootstrap.servers", LOCAL_KAFKA_BROKER); // Broker default host:port
+        kafkaProps.setProperty("zookeeper.connect", LOCAL_ZOOKEEPER_HOST); // Zookeeper default host port
+        kafkaProps.setProperty("bootstrap.servers", LOCAL_KAFKA_BROKER); // Broker default host port
         kafkaProps.setProperty("group.id", TASKS_GROUP);                 // Consumer group ID
-        kafkaProps.setProperty("auto.offset.reset", "earliest");       // Always read topic from start
+        kafkaProps.setProperty("auto.offset.reset", "earliest");       // Read topic from start
 
         //TODO: implement the following transformations
         // create a Kafka consumer
