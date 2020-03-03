@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ef70f1b3-f51e-466d-9b07-a7237b734314" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/clusterdata-2011-2/job_events/part-00000-of-00500.csv.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/clusterdata-2011-2/job_events/part-00001-of-00500.csv.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/clusterdata-2011-2/job_events/part-00002-of-00500.csv.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/clusterdata-2011-2/task_events/part-00000-of-00500.csv.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/clusterdata-2011-2/task_events/part-00001-of-00500.csv.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/clusterdata-2011-2/task_events/part-00002-of-00500.csv.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/datatypes/EventType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/datatypes/JobEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/datatypes/TaskEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/exercise1/FilterTaskEventsToKafka.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/exercise1/JobEventCount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/exercise1/JobSchedulingLatency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/sources/JobEventSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/sources/TaskEventSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/utils/AppBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/utils/JobEventSchema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/java/clusterdata/utils/TaskEventSchema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/main/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/test/java/clusterdata/FilterTaskEventsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/test/java/clusterdata/JobEventCountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/test/java/clusterdata/JobSchedulingLatencyTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/test/java/clusterdata/MaxTaskCompletionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/test/java/clusterdata/testing/JobEventTestBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/test/java/clusterdata/testing/TaskEventTestBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/src/test/java/clusterdata/testing/TestSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/datatypes/EventType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/datatypes/JobEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/datatypes/TaskEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/FilterTaskEventsToKafka$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/FilterTaskEventsToKafka.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/JobEventCount$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/JobEventCount$AppendOneMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/JobEventCount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/JobSchedulingLatency$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/JobSchedulingLatency$DurationMapping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/JobSchedulingLatency.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka$DurationTaskMapping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka$TSExtractor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/exercise1/MaxTaskCompletionTimeFromKafka.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/sources/JobEventSource$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/sources/JobEventSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/sources/TaskEventSource$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/sources/TaskEventSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/utils/AppBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/utils/JobEventSchema.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/clusterdata/utils/TaskEventSchema.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/classes/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/FilterTaskEventsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/JobEventCountTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/JobSchedulingLatencyTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/MaxTaskCompletionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/JobEventTestBase$TestJobEventSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/JobEventTestBase$TestSink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/JobEventTestBase$TestStringSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/JobEventTestBase$Testable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/JobEventTestBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/TaskEventTestBase$TestSink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/TaskEventTestBase$TestStringSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/TaskEventTestBase$TestTaskEventSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/TaskEventTestBase$Testable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/TaskEventTestBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clusterdata-analysis/target/test-classes/clusterdata/testing/TestSource.class" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XDItFrgGKCxdSV30bT65r5TDkN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.MaxTaskCompletionTimeFromKafka">
+    <configuration name="FilterTaskEventsToKafka" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clusterdata.exercise1.FilterTaskEventsToKafka" />
+      <module name="clusterdata-analysis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clusterdata.exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobEventCount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clusterdata.exercise1.JobEventCount" />
+      <module name="clusterdata-analysis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clusterdata.exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobSchedulingLatency" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clusterdata.exercise1.JobSchedulingLatency" />
+      <module name="clusterdata-analysis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clusterdata.exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MaxTaskCompletionTimeFromKafka" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clusterdata.exercise1.MaxTaskCompletionTimeFromKafka" />
+      <module name="clusterdata-analysis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clusterdata.exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MaxTaskCompletionTimeFromKafka" />
+        <item itemvalue="Application.FilterTaskEventsToKafka" />
+        <item itemvalue="Application.JobSchedulingLatency" />
+        <item itemvalue="Application.JobEventCount" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef70f1b3-f51e-466d-9b07-a7237b734314" name="Default Changelist" comment="" />
+      <created>1580574450525</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580574450525</updated>
+      <workItem from="1580574455654" duration="953000" />
+      <workItem from="1580582430098" duration="8619000" />
+      <workItem from="1580704045299" duration="988000" />
+      <workItem from="1580750684703" duration="6781000" />
+      <workItem from="1580848414972" duration="4670000" />
+      <workItem from="1581015599773" duration="20620000" />
+      <workItem from="1581102565877" duration="7609000" />
+      <workItem from="1581225789220" duration="15241000" />
+      <workItem from="1581310182733" duration="2652000" />
+      <workItem from="1581355965002" duration="30590000" />
+      <workItem from="1581469272802" duration="71000" />
+      <workItem from="1581612973182" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
