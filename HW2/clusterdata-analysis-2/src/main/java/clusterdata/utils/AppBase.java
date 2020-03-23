@@ -12,8 +12,8 @@ public class AppBase {
     public static SinkFunction out = null;
     public static int parallelism = 4;
 
-    public final static String pathToJobEventData = "/Users/kobale/Desktop/clusterdata-analysis-2/src/clusterdata-2011-2/job_events";
-    public final static String pathToTaskEventData = "/Users/kobale/Desktop/clusterdata-analysis-2/src/clusterdata-2011-2/task_events";
+    public final static String pathToJobEventData = "/Users/kobale/Desktop/CS 591 Data Stream/job_events";
+    public final static String pathToTaskEventData = "/Users/kobale/Desktop/CS 591 Data Stream/task_events";
 
 
     public static SourceFunction<JobEvent> jobSourceOrTest(SourceFunction<JobEvent> source) {
