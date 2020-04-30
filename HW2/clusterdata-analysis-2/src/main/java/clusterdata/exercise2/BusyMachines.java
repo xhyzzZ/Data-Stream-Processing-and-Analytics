@@ -5,8 +5,7 @@ import clusterdata.sources.TaskEventSource;
 import clusterdata.utils.AppBase;
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.api.common.functions.FlatMapFunction;
-import org.apache.flink.api.common.state.ListState;
-import org.apache.flink.api.common.state.ListStateDescriptor;
+import org.apache.flink.api.common.state.*;
 import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
@@ -15,14 +14,10 @@ import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
-import org.apache.flink.streaming.api.functions.sink.SinkFunction;
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Write a program that identifies every 5 minutes the busiest machines in the cluster during the last 15 minutes.
@@ -53,7 +48,7 @@ public class BusyMachines extends AppBase {
         String input = params.get("input", pathToTaskEventData);
         final int busyThreshold = params.getInt("threshold", 15);
         threshold = busyThreshold;
-        final int servingSpeedFactor = 60000; // events of 10 minute are served in 1 second
+        final int servingSpeedFactor = 600; // events of 10 minute are served in 1 second
 
         // set up streaming execution environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -121,38 +116,34 @@ public class BusyMachines extends AppBase {
     }
 
     public static class MyProcessFunction extends KeyedProcessFunction<Tuple, Tuple2<Long, JobBusyMachine>, Tuple2<Long, Integer>> {
-        private ListState<JobBusyMachine> state;
+        private ValueState<Integer> state;
 
         @Override
         public void open(Configuration parameters) throws Exception {
             super.open(parameters);
-            ListStateDescriptor<JobBusyMachine> itemsStateDesc = new ListStateDescriptor<>(
-                    "state", JobBusyMachine.class);
-            state = getRuntimeContext().getListState(itemsStateDesc);
+            ValueStateDescriptor<Integer> itemsStateDesc = new ValueStateDescriptor<>(
+                    "state", Integer.class);
+            state = getRuntimeContext().getState(itemsStateDesc);
+
         }
         @Override
         public void processElement(Tuple2<Long, JobBusyMachine> in, Context ctx, Collector<Tuple2<Long, Integer>> out) throws Exception {
-            state.add(in.f1);
+            if (state.value() == null) {
+                state.update(1);
+            } else {
+                int cur = state.value();
+                if (in.f1.busyCount >= threshold) {
+                    cur++;
+                    state.update(cur);
+                }
+            }
             ctx.timerService().registerEventTimeTimer(in.f1.windowEnd + 1);
         }
 
         @Override
         public void onTimer(long timestamp, OnTimerContext ctx, Collector<Tuple2<Long, Integer>> out) throws Exception {
-            List<JobBusyMachine> allItems = new ArrayList<>();
-            for (JobBusyMachine item : state.get()) {
-                allItems.add(item);
-            }
-            // clear state data
-            state.clear();
-            int count = 0;
-            for (JobBusyMachine j : allItems) {
-                if (j.busyCount >= threshold) {
-                    count++;
-                }
-            }
-            if (count != 0) {
-                out.collect(new Tuple2<>(timestamp - 1, count));
-            }
+            int cur = state.value();
+            out.collect(new Tuple2<>(timestamp - 1, cur));
         }
     }
 }

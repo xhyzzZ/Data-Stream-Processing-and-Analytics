@@ -1,0 +1,13 @@
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/datatypes/EventType.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/utils/JobEventSchema.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/utils/TaskEventSchema.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/sources/JobEventSource.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/exercise3/TaskEventsToKafka.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/exercise3/FaultTolerance.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/exercise3/InvariantBasedAnomaly.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/utils/AppBase.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/exercise3/RuleBasedAnomaly.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/datatypes/TaskEvent.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/sources/TaskEventSource.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/exercise3/TimeSeriesAnomaly.java
+/Users/kobale/Desktop/CS 591 Data Stream/Final Project/clusterdata-analysis-3/src/main/java/clusterdata/datatypes/JobEvent.java
